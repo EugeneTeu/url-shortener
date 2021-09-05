@@ -19,9 +19,7 @@ const createUrl = async (request: Request, response: Response) => {
   //TODO: store hash and url into db
   const convertedUrl = appendUrl(shortKey);
   try {
-    const {
-      results,
-    } = await queryUrlServiceDbClient(
+    await queryUrlServiceDbClient(
       "INSERT INTO URL (hash, converted_url, original_url) VALUES (?, ? , ?)",
       [hashedString, convertedUrl, url]
     );
@@ -30,7 +28,7 @@ const createUrl = async (request: Request, response: Response) => {
     return response.status(500).send("internal server error");
   }
   return response.status(200).send({
-    result: appendUrl(shortKey),
+    url: convertedUrl,
   });
 };
 

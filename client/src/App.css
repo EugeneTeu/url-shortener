@@ -25,11 +25,21 @@
 
 .background {
   min-height: 75vh;
-  margin-left: 10vw;
-  margin-right: 10vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
   text-align: left;
-  padding: 16px;
+  /* padding: px; */
 }
+
+@media only screen and (min-width: 992px) {
+  .background {
+    min-height: 75vh;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    text-align: left;
+  }
+}
+
 
 .ant-card {
   box-shadow: 0 7px 20px rgba(0, 0, 0, 0.25), 0 8px 8px rgba(0, 0, 0, 0.22);
@@ -61,3 +71,4 @@ h6 {
     transform: rotate(360deg);
   }
 }
+
