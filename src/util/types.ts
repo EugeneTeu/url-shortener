@@ -3,8 +3,11 @@ type SuccessResponse = {
 };
 
 type ErrorResponse = {
-  code: false;
   message: string;
 };
 
-export type { SuccessResponse, ErrorResponse };
+type CreateShortenedUrlResponse = {
+  url: string;
+};
+
+export type { SuccessResponse, ErrorResponse, CreateShortenedUrlResponse };

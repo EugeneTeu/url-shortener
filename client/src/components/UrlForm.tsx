@@ -8,16 +8,14 @@ export const UrlForm: React.FC<{}> = () => {
   const [shortenedUrl, setShortenedUrl] = useState<string | undefined>(
     undefined
   );
-  const onPressEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    e.preventDefault();
-  };
+
   const onFinish = async (values: any) => {
     try {
       const { url } = await createShortenedUrl(values);
       setShortenedUrl(url);
     } catch (e) {
       console.log(e);
-      notification.error({ message: "something went wrong" });
+      notification.error({ message: (e as unknown) as string });
     }
   };
 
