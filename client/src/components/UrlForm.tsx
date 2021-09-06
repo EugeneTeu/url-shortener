@@ -21,6 +21,7 @@ export const UrlForm: React.FC<{}> = () => {
 
   const onReset = () => {
     form.resetFields();
+    setShortenedUrl(undefined);
   };
 
   return (

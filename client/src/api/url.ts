@@ -1,7 +1,7 @@
 import axios from "axios";
 import { CreateShortenedUrlResponse, ErrorResponse } from "./types";
 
-const BASE_API = "http://localhost:8080/url";
+const BASE_API = "/url";
 
 export const createShortenedUrl = async ({ url }: { url: string }) => {
   const response = await fetch(BASE_API, {

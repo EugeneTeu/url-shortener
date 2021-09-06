@@ -4,6 +4,7 @@ import cors from "cors";
 import morgan from "morgan";
 import { urlServiceRouter } from "./src/routes";
 import { createDb } from "./src/database";
+import path from "path";
 
 const app = express();
 
@@ -17,6 +18,18 @@ const initMain = async () => {
     app.use(express.json());
     app.use(cors());
     app.use(urlServiceRouter);
+    if (process.env.NODE_ENV == "development") {
+      app.use(express.static(path.join(__dirname, "./client/build")));
+      app.get("/*", (req, res) => {
+        res.sendFile(path.join(__dirname, "./client/build/index.html"));
+      });
+    } else {
+      app.use(express.static(path.join(__dirname, "../client/build")));
+      app.get("/*", (req, res) => {
+        res.sendFile(path.join(__dirname, "../client/build/index.html"));
+      });
+    }
+
     app.listen(PORT, () => {
       console.log(`⚡️[server]: Server is running at http://localhost:${PORT}`);
     });
