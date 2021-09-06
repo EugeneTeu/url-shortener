@@ -16,7 +16,7 @@ const createUrl = async (request: Request, response: Response) => {
   seqNumber = seqNumber + 1;
   const shortKey = getShortKey(hashedString);
   // get hash
-  //TODO: store hash and url into db
+
   const convertedUrl = appendUrl(shortKey);
   try {
     await queryUrlServiceDbClient(
