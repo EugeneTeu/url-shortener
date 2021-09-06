@@ -1,4 +1,6 @@
 {
+      "include": ["*"],
+    "exclude": ["./build", "./tests/", "./node_modules/", "./client"],
   "compilerOptions": {
     "module": "commonjs",
     "declaration": true,
@@ -8,9 +10,8 @@
     "allowSyntheticDefaultImports": true,
     "target": "es2017",
     "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": "./",
-    "rootDir": "./",
+      "rootDir": "./",
+        "outDir": "./build",
     "incremental": true,
     "skipLibCheck": true,
     "esModuleInterop": true

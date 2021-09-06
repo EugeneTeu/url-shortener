@@ -1,7 +1,7 @@
 import { Response, Request } from "express";
 import { hashUrl, appendUrl, getShortKey } from "../util";
 import { queryUrlServiceDbClient } from "../database";
-import { CreateShortenedUrlResponse, ErrorResponse } from "src/util/types";
+import { CreateShortenedUrlResponse, ErrorResponse } from "../util/types";
 
 var seqNumber = 0;
 
@@ -44,9 +44,7 @@ const getUrl = async (request: Request, response: Response) => {};
 
 const getUrlList = async (request: Request, response: Response) => {};
 
-const deleteUrl = async (request: Request, response: Response) => {
-  
-};
+const deleteUrl = async (request: Request, response: Response) => {};
 
 export const urlServiceController = {
   createUrl,

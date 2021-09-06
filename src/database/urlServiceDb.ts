@@ -9,8 +9,13 @@ import mysql, {
   RowDataPacket,
 } from "mysql2/promise";
 
-const sqlFilePath = path.join(__dirname, "createTable.sql");
-const sqlScript = fs.readFileSync(sqlFilePath).toString();
+const createUrlServiceTableSQL = `CREATE TABLE url_service.URL (
+  hash varchar(256) NOT NULL,
+  converted_url varchar(256) NOT NULL,
+  original_url varchar(512) NOT NULL ,
+  created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (hash)
+);`;
 const startUpDbConnection = mysql.createPool({
   host: process.env.HOST,
   user: process.env.USER_NAME,
@@ -21,7 +26,7 @@ const startUpDbConnection = mysql.createPool({
 export const createDb = async () => {
   await startUpDbConnection.query("DROP DATABASE IF EXISTS url_service;");
   await startUpDbConnection.query("CREATE DATABASE url_service;");
-  await startUpDbConnection.query(sqlScript);
+  await startUpDbConnection.query(createUrlServiceTableSQL);
 };
 
 const connection = mysql.createPool({
