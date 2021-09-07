@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, Form, Button, notification, Typography } from "antd";
+import { Input, Form, Button, notification, Typography, Card } from "antd";
 import { createShortenedUrl } from "../api";
 const { Title } = Typography;
 
@@ -15,7 +15,7 @@ export const UrlForm: React.FC<{}> = () => {
       setShortenedUrl(url);
     } catch (e) {
       console.log(e);
-      notification.error({ message: (e as unknown) as string });
+      notification.error({ message: <p>Something went wrong!</p> });
     }
   };
 
@@ -66,7 +66,10 @@ export const UrlForm: React.FC<{}> = () => {
           </Button>
         </Form.Item>
       </Form>
-      <Title level={2}>{shortenedUrl} </Title>
+      <br/>
+      <Card title="Shortened URL" bordered={false}>
+        <Title level={3}>{shortenedUrl} </Title>
+      </Card>
     </>
   );
 };
