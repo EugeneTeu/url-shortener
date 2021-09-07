@@ -57,6 +57,8 @@ database "database" {
 [API server] -> [url_service]
 ```
 
+![architecture](/architecture.png)
+
 ---
 
 - BE Serves FE on a single VM instance in google cloud
