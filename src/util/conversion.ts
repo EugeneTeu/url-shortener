@@ -4,7 +4,6 @@ import crypto from "crypto";
 export function hashUrl(originalUrl: string, seqNumber: number): string {
   const md5Sum = crypto.createHash("sha256");
   const digest = md5Sum.update(originalUrl + seqNumber + "").digest("base64");
-  // .replace("/", (Math.random() + 1).toString(36).substring(1));
   return digest;
 }
 

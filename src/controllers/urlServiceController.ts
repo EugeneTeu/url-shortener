@@ -22,7 +22,6 @@ const createUrl = async (
   seqNumber = seqNumber + 1;
   const shortKey = getShortKey(hashedString);
   // get hash
-
   const convertedUrl = appendUrl(shortKey);
   try {
     await queryUrlServiceDbClient(
@@ -31,6 +30,7 @@ const createUrl = async (
     );
   } catch (e) {
     console.log(e);
+    // EDGE case when there is hash collision
     return response.status(500).send({
       message: "internal server error",
     });
